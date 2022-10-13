@@ -47,7 +47,7 @@
             margin: 0;
             background-color: white;
             margin-top: 3rem;
-            overflow:hidden;
+            overflow: hidden;
         }
 
         .gamediv div {
@@ -91,6 +91,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background: url("./cool-background.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-blend-mode: color-dodge;
+            position: relative;
+            bottom: 50px;
         }
 
         #guessInput {
@@ -264,6 +271,7 @@
                 opacity: 1;
             }
         }
+
         @keyframes slideInFromTop {
             0% {
                 transform: translateY(-100%);
@@ -275,6 +283,7 @@
                 opacity: 1;
             }
         }
+
         @keyframes slideInFromBottom {
             0% {
                 transform: translateY(+100%);
@@ -286,6 +295,7 @@
                 opacity: 1;
             }
         }
+
         @keyframes slideInFromRight {
             0% {
                 transform: translateX(+100%);
@@ -297,15 +307,183 @@
                 opacity: 1;
             }
         }
+
+        #easy .verticalNav {
+            position: fixed;
+            left: 500px;
+            display: flex;
+            flex-direction: column;
+            width: 30px;
+            background: transparent;
+        }
+
+        #easy .verticalNav div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            /* width: 20px; */
+            text-align: center;
+            font-family: 'Silkscreen', cursive;
+            color: darkblue;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        #easy .horizontalNav {
+            position: fixed;
+            top: 100px;
+            left: 550px;
+            display: flex;
+            height: 20px;
+            background: transparent;
+        }
+
+        #easy .horizontalNav div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            text-align: center;
+            font-family: 'Silkscreen', cursive;
+            color: rgb(0, 0, 0);
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        #medium .verticalNav {
+            position: fixed;
+            left: 500px;
+            display: flex;
+            flex-direction: column;
+            width: 30px;
+            background: transparent;
+        }
+
+        #medium .verticalNav div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 98px;
+            /* width: 20px; */
+            text-align: center;
+            font-family: 'Silkscreen', cursive;
+            color: darkblue;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        #medium .horizontalNav {
+            position: fixed;
+            top: 115px;
+            left: 560px;
+            display: flex;
+            height: 20px;
+            background: transparent;
+        }
+
+        #medium .horizontalNav div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 105px;
+            text-align: center;
+            font-family: 'Silkscreen', cursive;
+            color: black;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        #hard .verticalNav {
+            position: fixed;
+            left: 510px;
+            display: flex;
+            flex-direction: column;
+            width: 30px;
+            background: transparent;
+        }
+
+        #hard .verticalNav div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 73px;
+            /* width: 20px; */
+            text-align: center;
+            font-family: 'Silkscreen', cursive;
+            color: darkblue;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        #hard .horizontalNav {
+            position: fixed;
+            top: 85px;
+            left: 550px;
+            display: flex;
+            height: 20px;
+            background: transparent;
+        }
+
+        #hard .horizontalNav div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 73px;
+            text-align: center;
+            font-family: 'Silkscreen', cursive;
+            color: black;
+            font-size: 1rem;
+            background: transparent;
+        }
+
+        .showDiff {
+            /* height: 50px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            font-family: 'Silkscreen', cursive;
+            font-size: 1.5rem;
+            color: darkblue;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        #diffText {
+            font-size: 2rem;
+            color: darkblue;
+            font-family: 'Silkscreen', cursive;
+        }
+        .showDiff_out{
+            display: none;
+        }
+        /* .showDiff div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            font-family: 'Silkscreen', cursive;
+            font-size: 1rem;
+            background-color: white;
+        }
+        .highlight{
+            font-size: 2rem;
+            background-color: darkblue;
+            color: rgb(255, 0, 0);
+        } */
     </style>
 </head>
 
 <body>
 
     <canvas class="background"></canvas>
-    <!-- <div class="slider">
-        <marquee style="font-family: 'Press Start 2P', cursive; z-index: -5; " behavior="" direction=""> HIDE & SEEK</marquee>
-    </div> -->
+
+    <div class="showDiff_out"  >
+        <div class="showDiff" style="animation: 1s ease-out 0s 1 slideInFromBottom;">Level:-<span id="diffText"></span></div>
+    </div>
+
     <div class="main-outer-container">
         <div class="selectDifficulty container">
             <div class="heading row">
@@ -316,7 +494,8 @@
             </div>
             <div class="row">
 
-                <div id="mediumbtn" style="animation: 1s ease-out 0s 1 slideInFromRight; " class="btn col-md-12">medium</div>
+                <div id="mediumbtn" style="animation: 1s ease-out 0s 1 slideInFromRight; " class="btn col-md-12">medium
+                </div>
             </div>
             <div class="row">
 
@@ -326,9 +505,20 @@
         <div class="gameMainDiv">
             <canvas class="background"></canvas>
 
-            <div id="easy" class="gamediv container" >
+            <div id="easy" class="gamediv container">
                 <div class="row" style="height: 50px; text-align:center ;border-radius: 10px;align-items: center;">
-                    <h2 style="width: 90%;margin: auto;font-size: 2.5rem; animation: 1s ease-out 0s 1 slideInFromTop; ">HIDE & SEEK :) </h2>
+                    <h2 style="width: 90%;margin: auto;font-size: 2.5rem; animation: 1s ease-out 0s 1 slideInFromTop; ">
+                        HIDE & SEEK :) </h2>
+                </div>
+                <div class="verticalNav " style="animation: 1s ease-out 0s 1 slideInFromBottom;">
+                    <div>A</div>
+                    <div>B</div>
+                    <div>C</div>
+                </div>
+                <div class="horizontalNav" style="animation: 1s ease-out 0s 1 slideInFromLeft;">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
                 </div>
                 <div class="row" style="animation: 1s ease-out 0s 1 slideInFromLeft;">
                     <div class="dibba col 1" id="a1"></div>
@@ -349,7 +539,8 @@
                     <div style="width: 100%; height: 95%; font-size: 1.5rem; color: darkblue; text-align: center;font-family: 'Silkscreen', cursive;"
                         id="rating"></div>
                 </div>
-                <div class="row input" style="height: 50px;margin-top: 3px; animation: 1s ease-out 0s 1 slideInFromBottom;">
+                <div class="row input"
+                    style="height: 50px;margin-top: 3px; animation: 1s ease-out 0s 1 slideInFromBottom;">
                     <div class="col-9" id="guessInput" style="text-align: center;"><input type="textbox"
                             placeholder="Guess the box ;) "
                             style="background-color: white;box-shadow: 0px 0px 2px inset;padding: 0px 5px ; margin: 2px 2px; width: 98%;">
@@ -367,7 +558,21 @@
 
             <div id="medium" class="gamediv container">
                 <div class="row" style="height: 50px; text-align:center ;border-radius: 10px;align-items: center;">
-                    <h2 style="width: 90%;margin: auto;font-size: 2.5rem;animation: 1s ease-out 0s 1 slideInFromTop;">HIDE & SEEK :) </h2>
+                    <h2
+                        style="width: 90%; position: relative; bottom: 20px; margin: auto;font-size: 2.5rem;animation: 1s ease-out 0s 1 slideInFromTop;">
+                        HIDE & SEEK :) </h2>
+                </div>
+                <div class="verticalNav " style="animation: 1s ease-out 0s 1 slideInFromBottom;">
+                    <div>A</div>
+                    <div>B</div>
+                    <div>C</div>
+                    <div>D</div>
+                </div>
+                <div class="horizontalNav" style="animation: 1s ease-out 0s 1 slideInFromLeft;">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
                 </div>
                 <div class="row" style="animation: 1s ease-out 0s 1 slideInFromLeft;">
                     <div class="dibba col 1" id="ma1"></div>
@@ -397,7 +602,8 @@
                     <div style="width: 100%; height: 95%; font-size: 1.5rem; color: darkblue; text-align: center;font-family: 'Silkscreen', cursive;"
                         id="rating"></div>
                 </div>
-                <div class="row input" style="height: 50px; margin-top: 3px;animation: 1s ease-out 0s 1 slideInFromBottom;">
+                <div class="row input"
+                    style="height: 50px; margin-top: 3px;animation: 1s ease-out 0s 1 slideInFromBottom;">
                     <div class="col-9" id="guessInput" style="text-align: center; height: 60%;"><input type="textbox"
                             placeholder="Guess the box ;) "
                             style="background-color: white;box-shadow: 0px 0px 2px inset;padding: 0px 5px ; margin: 2px 2px;height: 50%; width: 98%;">
@@ -415,7 +621,25 @@
 
             <div id="hard" class="gamediv container">
                 <div class="row" style="height: 30px; text-align:center ;border-radius: 10px;align-items: center;">
-                    <h2 style="width: 90%;margin: auto;font-size: 2rem;animation: 1s ease-out 0s 1 slideInFromTop;">HIDE & SEEK :) </h2>
+                    <h2
+                        style="width: 90%;margin: auto;font-size: 2rem;animation: 1s ease-out 0s 1 slideInFromTop;position: relative;bottom: 10px;">
+                        HIDE & SEEK :) </h2>
+                </div>
+                <div class="verticalNav " style="animation: 1s ease-out 0s 1 slideInFromBottom;">
+                    <div>A</div>
+                    <div>B</div>
+                    <div>C</div>
+                    <div>D</div>
+                    <div>E</div>
+                    <div>F</div>
+                </div>
+                <div class="horizontalNav" style="animation: 1s ease-out 0s 1 slideInFromLeft;">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
                 </div>
                 <div class="row" style="animation: 1s ease-out 0s 1 slideInFromRight;">
                     <div class="dibba col 1" id="ha1"></div>
@@ -469,10 +693,12 @@
                     <div style="width: 100%; height: 95%;margin-top: 10px; font-size: 1.5rem; color: darkblue; text-align: center;font-family: 'Silkscreen', cursive;"
                         id="rating"></div>
                 </div>
-                <div class="row input" style="height: 50px; margin-top: 10px ;padding: 5px 5px; animation: 1s ease-out 0s 1 slideInFromBottom;">
+                <div class="row input"
+                    style="height: 50px; margin-top: 10px ;padding: 5px 5px; animation: 1s ease-out 0s 1 slideInFromBottom;">
                     <div class="col-9" id="guessInput"><input type="textbox" placeholder="Guess the box ;) "></div>
                     <div class="col-3" id="guessbtn"><button
-                            style="background-color: darkblue; color:white;font-family: 'Silkscreen', cursive; ">GUESS</button></div>
+                            style="background-color: darkblue; color:white;font-family: 'Silkscreen', cursive; ">GUESS</button>
+                    </div>
                     <div class="col-12 resetBtn"
                         style="border: 1px solid darkblue; width:100%; margin:auto; margin-top: 8px ;font-size: 1.2rem; text-align: center; font-family: 'Silkscreen', cursive;">
                         RESET</div>
@@ -494,7 +720,7 @@
                 color: '#87b7ff',
                 connectParticles: 'true',
 
-                maxParticles: 100
+                maxParticles: 200
 
             });
     };
@@ -509,6 +735,9 @@
             totalCount = 0;
             giftCount = 0;
             rating = 0;
+            $(".gameMainDiv").css({ height: "100vh" });
+            $("#diffText").text("EASY");
+            $(".showDiff_out").show();
             $(".selectDifficulty").hide();
             $("#easy").show();
             $("#hard").hide();
@@ -540,7 +769,10 @@
             totalCount = 0;
             giftCount = 0;
             rating = 0;
+            $("#diffText").text("MEDIUM");
+            $(".showDiff_out").show();
             $(".gamediv .row").css({ height: "100px" });
+            $(".gameMainDiv").css({ height: "100vh" });
             $(".selectDifficulty").hide();
             $("#easy").hide();
             $("#hard").hide();
@@ -567,8 +799,11 @@
             totalCount = 0;
             giftCount = 0;
             rating = 0;
+            $("#diffText").text("HARD");
+            $(".showDiff_out").show();
             $(".gamediv .row").css({ height: "75px" });
             $(".gamediv").css({ height: "620px" });
+            $(".gameMainDiv").css({ height: "100vh" });
             // $(".fa-gift").css({ "font-size":"1rem" });
             // $(".gamediv .col").css({width:"50px"});
             $(".selectDifficulty").hide();
