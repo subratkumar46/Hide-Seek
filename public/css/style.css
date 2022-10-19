@@ -7,7 +7,7 @@
 }
 
 .gamediv {
-    height: 600px;
+    height: 630px;
     width: 450px;
     display: none;
     border-radius: 10px;
@@ -196,7 +196,7 @@ button:hover {
 }
 
 #hard .fa-gift {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: green;
 }
 
@@ -266,32 +266,11 @@ button:hover {
     }
 }
 
-#easy .verticalNav {
-    position: fixed;
-    left: 500px;
-    display: flex;
-    flex-direction: column;
-    width: 30px;
-    background: transparent;
-}
 
-#easy .verticalNav div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 150px;
-    /* width: 20px; */
-    text-align: center;
-    font-family: 'Silkscreen', cursive;
-    color: darkblue;
-    font-size: 1rem;
-    background: transparent;
-}
 
 #easy .horizontalNav {
-    position: fixed;
-    top: 100px;
-    left: 550px;
+    position: relative;
+    left: 20px;
     display: flex;
     height: 20px;
     background: transparent;
@@ -309,32 +288,11 @@ button:hover {
     background: transparent;
 }
 
-#medium .verticalNav {
-    position: fixed;
-    left: 500px;
-    display: flex;
-    flex-direction: column;
-    width: 30px;
-    background: transparent;
-}
 
-#medium .verticalNav div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 98px;
-    /* width: 20px; */
-    text-align: center;
-    font-family: 'Silkscreen', cursive;
-    color: darkblue;
-    font-size: 1rem;
-    background: transparent;
-}
 
 #medium .horizontalNav {
-    position: fixed;
-    top: 115px;
-    left: 560px;
+    position: relative;
+    left: 20px;
     display: flex;
     height: 20px;
     background: transparent;
@@ -352,32 +310,10 @@ button:hover {
     background: transparent;
 }
 
-#hard .verticalNav {
-    position: fixed;
-    left: 510px;
-    display: flex;
-    flex-direction: column;
-    width: 30px;
-    background: transparent;
-}
-
-#hard .verticalNav div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 73px;
-    /* width: 20px; */
-    text-align: center;
-    font-family: 'Silkscreen', cursive;
-    color: darkblue;
-    font-size: 1rem;
-    background: transparent;
-}
 
 #hard .horizontalNav {
-    position: fixed;
-    top: 85px;
-    left: 550px;
+    position: relative;
+    left: 20px;
     display: flex;
     height: 20px;
     background: transparent;
@@ -387,7 +323,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 73px;
+    width: 70px;
     text-align: center;
     font-family: 'Silkscreen', cursive;
     color: black;
@@ -417,4 +353,30 @@ button:hover {
 
 .showDiff_out {
     display: none;
+}
+.backBtn{
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 11;
+    background-color: darkblue;
+    border: 1px solid darkblue;
+    box-shadow: 0px 2px 5px grey;
+    color: white;
+    font-family: 'Silkscreen', cursive;
+    padding: 0px 10px;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+.backBtn:hover{
+    background-color: white;
+    color: darkblue;
+}
+.vn{
+    color: darkblue;
+    display: flex;
+    align-items: center;
+    font-family: 'Silkscreen', cursive;
+
 }

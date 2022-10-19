@@ -12,6 +12,9 @@ window.onload = function () {
 
         });
 };
+$('.backBtn').click(function() {
+    location.reload();
+});
 $(document).ready(function () {
     var r = [];
     var mediumAry = [];
@@ -28,6 +31,7 @@ $(document).ready(function () {
         $(".showDiff_out").show();
         $(".selectDifficulty").hide();
         $("#easy").show();
+        $(".backBtn").show();
         $("#hard").hide();
         $("#medium").hide();
 
@@ -57,6 +61,8 @@ $(document).ready(function () {
         totalCount = 0;
         giftCount = 0;
         rating = 0;
+        $(".backBtn").show();
+
         $("#diffText").text("MEDIUM");
         $(".showDiff_out").show();
         $(".gamediv .row").css({ height: "100px" });
@@ -87,13 +93,13 @@ $(document).ready(function () {
         totalCount = 0;
         giftCount = 0;
         rating = 0;
+        $(".backBtn").show();
+
         $("#diffText").text("HARD");
         $(".showDiff_out").show();
         $(".gamediv .row").css({ height: "75px" });
-        $(".gamediv").css({ height: "620px" });
+        $(".gamediv").css({ height: "630px" });
         $(".gameMainDiv").css({ height: "100vh" });
-        // $(".fa-gift").css({ "font-size":"1rem" });
-        // $(".gamediv .col").css({width:"50px"});
         $(".selectDifficulty").hide();
         $("#easy").hide();
         $("#hard").show();
